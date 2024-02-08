@@ -43,7 +43,15 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        precio_lapm_unitario = 800
+        cantidad_str = self.combobox_cantidad.get()
+        cantidad = float(cantidad_str)
+        marca = self.combobox_marca.get()
+        if cantidad_str == "6" and marca == "ArgentinaLuz" or cantidad_str >= "6" and marca == "FelipeLamparas" or cantidad_str >= "6" and marca == "JeLuz" or cantidad_str >= "6" and marca == "HazIluminacion" or cantidad_str >= "6" and marca == "Osram":
+            precio_lapm_total = (precio_lapm_unitario * cantidad) - ((precio_lapm_unitario * cantidad) * 0.50)
+            mensaje = "El costo total es {0}".format(precio_lapm_total)
+            alert = ("Costo" , mensaje)
+
         
     
 if __name__ == "__main__":
