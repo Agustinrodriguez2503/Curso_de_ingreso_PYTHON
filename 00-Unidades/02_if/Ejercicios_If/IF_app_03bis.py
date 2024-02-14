@@ -36,7 +36,7 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         altura_str = self.txt_edad.get()
         altura = float(altura_str)
-        if altura > 1.80:
+        if altura >= 1.80:
             mensaje = "El basquetbolista es pivot."
             alert ("Altura" , mensaje)
 

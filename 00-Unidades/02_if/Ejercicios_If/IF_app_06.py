@@ -47,15 +47,9 @@ class App(customtkinter.CTk):
         elif edad >= 10 and edad <= 13:
             mensaje = "PRE-ADOLESCENTE"
             alert ("Edad" , mensaje)
-        else:
+        elif edad > 13 and edad <= 17:
             mensaje = "ADOLESCENTE"
             alert ("Edad" , mensaje)
-
-
-        #elif edad < 13 and edad >= 17:
-            #mensaje = "ADOLESCENTE"
-            #alert ("Edad" , mensaje)
-
         
         
     

@@ -5,8 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: agustin
+apellido: rodriguez
+tutor: marina/albana
 ---
 TP: IF_Iluminacion
 ---
@@ -43,16 +44,55 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        precio_lapm_unitario = 800
-        cantidad_str = self.combobox_cantidad.get()
-        cantidad = float(cantidad_str)
+        precio_unitario = 800
+        cantidad_str =  self.combobox_cantidad.get()
+        cantidad = int(cantidad_str)
         marca = self.combobox_marca.get()
-        if cantidad_str == "6" and marca == "ArgentinaLuz" or cantidad_str >= "6" and marca == "FelipeLamparas" or cantidad_str >= "6" and marca == "JeLuz" or cantidad_str >= "6" and marca == "HazIluminacion" or cantidad_str >= "6" and marca == "Osram":
-            precio_lapm_total = (precio_lapm_unitario * cantidad) - ((precio_lapm_unitario * cantidad) * 0.50)
-            mensaje = "El costo total es {0}".format(precio_lapm_total)
-            alert = ("Costo" , mensaje)
-
-        
+        if cantidad >= 6:
+            precio_mayoritario  = precio_unitario * cantidad
+            precio_descuento = precio_mayoritario * 0.50
+            mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_descuento)
+            if precio_descuento >= 4000:
+                precio_final = precio_descuento * 0.95
+                mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_final) 
+        elif cantidad == 5:
+            if  marca == "ArgentinaLuz":
+                precio_mayoritario  = precio_unitario * cantidad
+                precio_descuento = precio_mayoritario * 0.60
+                mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_descuento)
+            else:
+                precio_mayoritario  = precio_unitario * cantidad
+                precio_descuento = precio_mayoritario - 0.70
+                mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_descuento)
+        elif cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                precio_mayoritario  = precio_unitario * cantidad
+                precio_descuento = precio_mayoritario * 0.75
+                mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_descuento)
+            else:
+                precio_mayoritario  = precio_unitario * cantidad
+                precio_descuento = precio_mayoritario * 0.80
+                mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_descuento)
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                precio_mayoritario  = precio_unitario * cantidad
+                precio_descuento = precio_mayoritario * 0.85
+                mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_descuento)
+            elif marca == "FelipeLamparas":
+                precio_mayoritario  = precio_unitario * cantidad
+                precio_descuento = precio_mayoritario * 0.90
+                mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_descuento)
+            else:
+                precio_mayoritario  = precio_unitario * cantidad
+                precio_descuento = precio_mayoritario * 0.95
+                mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_descuento)
+        elif cantidad == 1:
+            precio_mayoritario  = precio_unitario
+            mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_mayoritario)
+        elif cantidad == 2:
+            precio_mayoritario  = precio_unitario * 2
+            mensaje = "Usted compro {0} lámparas de la marca {1} y gasto {2}".format(cantidad,marca,precio_mayoritario)
+        alert ("Precio" , mensaje)
     
 if __name__ == "__main__":
     app = App()
