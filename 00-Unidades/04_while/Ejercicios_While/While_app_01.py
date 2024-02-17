@@ -6,8 +6,9 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: agustin
+apellido: rodriguez
+tutor: marina/albana
 ---
 Ejercicio: while_01
 ---

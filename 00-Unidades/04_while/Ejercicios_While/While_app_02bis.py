@@ -6,8 +6,9 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: agustin
+apellido: rodriguez
+tutor: marina/albana
 ---
 Ejercicio: while_02bis
 ---
@@ -36,10 +37,7 @@ class App(customtkinter.CTk):
                 suma_pares += numero
             numero += 1
         alert ("UTN", "La suma de los nuemros pares entre el 1 y el 10 es {0}".format(suma_pares))
-        #contador = 2
-        #while (contador <= 10):
-            #alert ("UTN", contador)
-            #contador += 2
+        
     
     
 if __name__ == "__main__":
