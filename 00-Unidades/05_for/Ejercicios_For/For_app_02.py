@@ -26,8 +26,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-       
+        for contador in range(5,0,-1):
+            alert ("UTN" , contador)
+        
             
 
 if __name__ == "__main__":

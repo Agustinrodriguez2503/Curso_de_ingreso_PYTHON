@@ -5,9 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre: agustin
-apellido: rodriguez
-tutor: marina/albana
+nombre:
+apellido:
 ---
 Ejercicio: while_10
 ---
@@ -43,29 +42,42 @@ class App(customtkinter.CTk):
         contador_positivos = 0
         contador_negativos = 0
         contador_ceros = 0
-        diferencia = 0
 
         while True:
-            numero = prompt("Datos" , "Ingrese un numero")
-            
-            if numero == None:
-                break
-            numero = int(numero)
+            numero_ingresado = prompt("Solicitar numero","Ingrese un numero")
 
-            if (numero < 0):
-                acumulador_negativos += numero
-                contador_negativos += 1
-            elif (numero > 0):
-                acumulador_positivos += numero
-                contador_positivos += 1
-            elif (numero == 0):
-                contador_ceros += 1
-        diferencia = contador_negativos - contador_positivos
+            if numero_ingresado != None:
+                
+            
+                numero_ingresado = float(numero_ingresado)
+
+                if numero_ingresado < 0:
+                    acumulador_negativos += numero_ingresado
+                    contador_negativos += 1
+                elif numero_ingresado > 0:
+                    acumulador_positivos += numero_ingresado
+                    contador_positivos += 1
+                else :
+                    contador_ceros += 1
+            else:
+                break
+        if contador_positivos > contador_negativos:
+            diferencia = contador_positivos - contador_negativos
+        else:
+            diferencia = contador_negativos - contador_positivos
         mensaje = f"La suma acumulada de los negativos: {acumulador_negativos}\n La suma acumulada de los positivos: {acumulador_positivos}\n Cantidad de números positivos ingresados:{contador_positivos} \nCantidad de números negativos ingresados: {contador_negativos}\n Cantidad de ceros: {contador_ceros}\n Diferencia entre la cantidad de los números positivos ingresados y los negativos: {diferencia}"
         alert ("UTN", mensaje)
         #diferencia = contador_positivos - contador_negativos
 
+                
+
+
+            
+
+    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
+
